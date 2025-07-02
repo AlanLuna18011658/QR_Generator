@@ -9,6 +9,16 @@ def generar_qr():
     nombre_imagen = entrada_nombre.get().strip()
     nombre_carpeta = entrada_carpeta.get().strip()
 
+    # Añadir validación de URL
+    if not url.startswith(('http://', 'https://')):
+        messagebox.showerror("Error", "La URL debe comenzar con http:// o https://")
+        return
+    
+    # Validar nombre de archivo
+    if not nombre_imagen.replace('.jpg', '').isalnum():
+        messagebox.showerror("Error", "El nombre solo puede contener letras y números")
+        return
+
     if not url or not nombre_imagen or not nombre_carpeta:
         messagebox.showerror("Error", "Por favor, completa todos los campos para crear el código QR.")
         return
