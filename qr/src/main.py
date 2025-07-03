@@ -9,12 +9,12 @@ def generar_qr():
     nombre_imagen = entrada_nombre.get().strip()
     nombre_carpeta = entrada_carpeta.get().strip()
 
-    # Añadir validación de URL
+    # URL Validation
     if not url.startswith(('http://', 'https://')):
         messagebox.showerror("Error", "La URL debe comenzar con http:// o https://")
         return
     
-    # Validar nombre de archivo
+    # Image name validation
     if not nombre_imagen.replace('.jpg', '').isalnum():
         messagebox.showerror("Error", "El nombre solo puede contener letras y números")
         return
